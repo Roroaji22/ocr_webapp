@@ -17,6 +17,7 @@ A simple web application that extracts text from images using **Flask** and **Te
 - HTML, CSS, JavaScript
 
 ## 📸 Screenshots
+![image](https://github.com/user-attachments/assets/bcc0e590-3f87-45f6-86f7-89d2c813fb36)
 
 > *You can insert screenshots of the interface here.*
 
@@ -41,4 +42,4 @@ A simple web application that extracts text from images using **Flask** and **Te
 
 5. **Visit Browser**
    ```bash
-   [python app.py](http://127.0.0.1:5000/
+   http://127.0.0.1:5000/
