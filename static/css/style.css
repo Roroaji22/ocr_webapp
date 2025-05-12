@@ -1,0 +1,197 @@
+/* Root Theme Colors */
+:root {
+    --bg: #f9f9f9;
+    --text: #222;
+    --card: #ffffff;
+    --primary: #4f46e5;
+    --secondary: #6366f1;
+}
+
+/* Dark mode overrides - applied on <html class="dark-mode"> */
+html.dark-mode {
+    --bg: #18181b;
+    --text: #e4e4e7;
+    --card: #1f1f23;
+    --primary: #818cf8;
+    --secondary: #a5b4fc;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+header {
+    background-color: #1f2937;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+nav {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.header-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+main {
+    flex: 1;
+    padding: 2rem;
+    max-width: 1000px;
+    margin: auto;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.card {
+    background-color: var(--card);
+    color: var(--text);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s, background-color 0.3s, color 0.3s;
+    margin-bottom: 2rem;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+}
+
+.card h2 {
+    margin-top: 0;
+}
+
+.card p {
+    flex-grow: 1;
+}
+
+.card a {
+    background-color: var(--primary);
+    color: white;
+    text-decoration: none;
+    padding: 0.6rem 1rem;
+    border-radius: 4px;
+    text-align: center;
+    margin-top: 1rem;
+    display: inline-block;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.card a:hover {
+    background-color: var(--secondary);
+}
+
+.toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--card);
+    border: 1px solid var(--primary);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    font-size: 1.2rem;
+    color: var(--primary);
+}
+
+.toggle-btn:hover {
+    background-color: var(--primary);
+    color: white;
+    transform: rotate(20deg);
+}
+
+/* Tidak perlu override toggle-btn di sini karena sudah pakai var() */
+footer {
+    background-color: var(--card);
+    color: var(--text);
+    text-align: center;
+    padding: 1rem;
+    font-size: 0.9rem;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+input[type="file"] {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+button {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: var(--secondary);
+}
+
+pre {
+    background-color: #f0f4f8;
+    padding: 1rem;
+    border-left: 4px solid var(--primary);
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    color: var(--text);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+html.dark-mode pre {
+    background-color: #2d2d31;
+}
+
+nav a.active {
+    text-decoration: underline;
+    font-weight: bold;
+}
+

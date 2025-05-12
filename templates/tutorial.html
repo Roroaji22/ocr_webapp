@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Tutorial | Ekstraksi Teks</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Teks Ekstraktor</h1>
+        <div class="header-controls">
+            <nav>
+                <a href="/">Beranda</a>
+                <a href="/about">Tentang</a>
+                <a href="/tutorial">Tutorial</a>
+            </nav>
+            <button class="toggle-btn" onclick="toggleDarkMode()" aria-label="Toggle Dark Mode">
+                <span class="icon" id="theme-icon">🌙</span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <div class="card">
+            <h2>Cara Menggunakan Aplikasi</h2>
+            <h3>1. OCR Gambar</h3>
+            <ul>
+                <li>Buka menu <strong>OCR Gambar</strong>.</li>
+                <li>Upload gambar yang berisi teks (JPG, PNG, dll).</li>
+                <li>Tekan tombol <em>Proses</em>.</li>
+                <li>Hasil teks akan muncul di bawah gambar.</li>
+            </ul>
+            <h3>2. Speech ke Teks</h3>
+            <ul>
+                <li>Buka menu <strong>Speech ke Teks</strong>.</li>
+                <li>Upload file audio (.mp3 atau .wav).</li>
+                <li>Tekan tombol <em>Proses</em>.</li>
+                <li>Hasil transkripsi akan ditampilkan.</li>
+            </ul>
+            <h3>3. Mode Malam</h3>
+            <ul>
+                <li>Klik tombol 🌙 / ☀️ di kanan atas untuk mengubah tampilan ke mode malam atau siang.</li>
+                <li>Preferensi akan tersimpan secara otomatis.</li>
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        © 2025 Ekstraksi Teks — Dibuat dengan ❤️ oleh Kelompok 5
+    </footer>
+
+    <script>
+        // Toggle dan simpan preferensi
+        function toggleDarkMode() {
+            const root = document.documentElement;
+            root.classList.toggle('dark-mode');
+            const isDark = root.classList.contains('dark-mode');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            document.getElementById('theme-icon').textContent = isDark ? '☀️' : '🌙';
+        }
+    
+        // Set ikon saat halaman dimuat
+        window.addEventListener('DOMContentLoaded', () => {
+            const isDark = document.documentElement.classList.contains('dark-mode');
+            document.getElementById('theme-icon').textContent = isDark ? '☀️' : '🌙';
+        });
+    </script>
+</body>
+</html>

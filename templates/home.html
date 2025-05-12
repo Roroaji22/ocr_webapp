@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Beranda | Ekstraksi Teks</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Terapkan dark-mode sebelum render untuk cegah flicker -->
+    <script>
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark-mode');
+        }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Teks Ekstraktor</h1>
+        <div class="header-controls">
+            <nav>
+                <a href="/">Beranda</a>
+                <a href="/about">Tentang</a>
+                <a href="/tutorial">Tutorial</a>
+            </nav>
+            
+            <button class="toggle-btn" onclick="toggleDarkMode()" aria-label="Toggle Dark Mode">
+                <span class="icon" id="theme-icon">🌙</span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <h2 style="text-align: center; margin-bottom: 2rem;">Pilih Jenis Ekstraksi</h2>
+        <div class="card-container">
+            <div class="card">
+                <h2>Ekstraksi dari Gambar</h2>
+                <p>Gunakan teknologi OCR untuk mengekstrak teks dari gambar seperti hasil scan, foto tulisan, dan lainnya.</p>
+                <a href="/upload/image">Gunakan OCR</a>
+            </div>
+            <div class="card">
+                <h2>Ekstraksi dari Audio</h2>
+                <p>Gunakan konversi suara ke teks untuk mengekstrak kata-kata dari file audio seperti MP3 atau WAV.</p>
+                <a href="/upload/audio">Gunakan Speech-to-Text</a>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        © 2025 Ekstraksi Teks — Dibuat dengan ❤️ oleh Kelompok 5
+    </footer>
+
+    <script>
+        // Toggle & simpan preferensi dark mode
+        function toggleDarkMode() {
+            const root = document.documentElement;
+            root.classList.toggle('dark-mode');
+            const isDark = root.classList.contains('dark-mode');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            document.getElementById('theme-icon').textContent = isDark ? '☀️' : '🌙';
+        }
+
+        // Terapkan ikon yang sesuai saat load
+        window.addEventListener('DOMContentLoaded', () => {
+            const isDark = document.documentElement.classList.contains('dark-mode');
+            document.getElementById('theme-icon').textContent = isDark ? '☀️' : '🌙';
+        });
+    </script>
+</body>
+</html>

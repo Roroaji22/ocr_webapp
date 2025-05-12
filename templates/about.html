@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Tentang | Ekstraksi Teks</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>Teks Ekstraktor</h1>
+        <div class="header-controls">
+            <nav>
+                <a href="/">Beranda</a>
+                <a href="/about">Tentang</a>
+                <a href="/tutorial">Tutorial</a>
+            </nav>
+            <button class="toggle-btn" onclick="toggleDarkMode()" aria-label="Toggle Dark Mode">
+                <span class="icon" id="theme-icon">🌙</span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <div class="card">
+            <h2>Tentang Aplikasi</h2>
+            <p>Aplikasi ini dikembangkan oleh Kelompok 5 sebagai bagian dari tugas akhir mata kuliah Sistem Multimedia. Tujuannya adalah untuk mempermudah pengguna dalam mengekstrak teks dari gambar (OCR) maupun audio (Speech-to-Text).</p>
+            <p>Teknologi yang digunakan mencakup Flask sebagai backend, Tesseract OCR untuk pemrosesan gambar, dan pustaka SpeechRecognition untuk konversi audio ke teks.</p>
+            <p>Aplikasi ini dirancang dengan antarmuka yang ramah pengguna, mendukung mode gelap, dan tampil baik di perangkat desktop maupun mobile.</p>
+        </div>
+    </main>
+
+    <footer>
+        © 2025 Ekstraksi Teks — Dibuat dengan ❤️ oleh Kelompok 5
+    </footer>
+
+    <script>
+        // Toggle dan simpan preferensi
+        function toggleDarkMode() {
+            const root = document.documentElement;
+            root.classList.toggle('dark-mode');
+            const isDark = root.classList.contains('dark-mode');
+            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            document.getElementById('theme-icon').textContent = isDark ? '☀️' : '🌙';
+        }
+    
+        // Set ikon saat halaman dimuat
+        window.addEventListener('DOMContentLoaded', () => {
+            const isDark = document.documentElement.classList.contains('dark-mode');
+            document.getElementById('theme-icon').textContent = isDark ? '☀️' : '🌙';
+        });
+    </script>
+</body>
+</html>
