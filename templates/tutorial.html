@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <title>Tutorial | Ekstraksi Teks</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <head>
+        <meta charset="UTF-8">
+        <title>Beranda | Ekstraksi Teks</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <!-- Terapkan dark-mode SEBELUM render -->
+        <script>
+            if (localStorage.getItem('theme') === 'dark') {
+                document.documentElement.classList.add('dark-mode');
+            }
+        </script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-</head>
+    </head>
 <body>
     <header>
         <h1>Teks Ekstraktor</h1>
@@ -45,6 +53,11 @@
                 <li>Preferensi akan tersimpan secara otomatis.</li>
             </ul>
         </div>
+            <h2>Video Tutorial Penggunaan</h2>
+        <video controls style="width: 100%; max-width: 800px;">
+            <source src="{{ url_for('static', filename='video/tutorial.mp4') }}" type="video/mp4">
+            Browser Anda tidak mendukung tag video.
+        </video>
     </main>
 
     <footer>
